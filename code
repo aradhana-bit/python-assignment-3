@@ -1,0 +1,51 @@
+#Python assignment 3
+#Aradhana
+#GRADEBOOK Analyzer
+#12 november 2025
+
+def cb(balance):
+    print(f"Your current balance is: Rs{balance}")
+    atmmenu(balance)
+
+def dm(balance):
+    amount = float(input("Enter amount to deposit: Rs"))
+    if amount > 0:
+        balance += amount
+        print(f"Rs{amount} deposited successfully.")
+    else:
+        print("Invalid amount, deposit failed.")
+    atmmenu(balance)
+
+def wm(balance):
+    amount = float(input("Enter amount to withdraw: Rs"))
+    if amount <= 0:
+        print("Invalid amount, withdrawal failed")
+    elif amount > balance:
+        print("Insufficient balance")
+    else:
+        balance -= amount
+        print(f"Rs{amount} withdrawn successfully.")
+    atmmenu(balance)
+
+def atmmenu(balance):
+    print("------ ATM MENU ------")
+    print("1. Check balance")
+    print("2. Deposit money")
+    print("3. Withdraw money")
+    print("4. Exit")
+
+    choice = input("Enter your choice : ")
+
+    if choice == 'check balance':
+        cb(balance)
+    elif choice == 'deposit money':
+        dm(balance)
+    elif choice == 'withdraw money':
+        wm(balance)
+    elif choice == 'exit':
+        print("Thank you for using our ATM.")
+    else:
+        print("Invalid choice.")
+        atmmenu(balance)
+
+atmmenu(10000)
